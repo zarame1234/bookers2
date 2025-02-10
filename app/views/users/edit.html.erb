@@ -8,3 +8,9 @@
  <p><%= f.text_field :introduction, placeholder:"introduction" %></p>
  <p><%= f.submit "Update User" %></p>
 <% end %>
+
+<div>
+  <h1>User info</h1>
+  <h3><%= @book.user.name %></h3>
+  <%= image_tag @user.get_prpfile_image(100, 100) %>
+</div>
