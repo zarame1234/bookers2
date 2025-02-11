@@ -23,7 +23,8 @@ class BooksController < ApplicationController
 
   def destroy
     book = Book.fibd(params[:id])
-    book.destroyredirect_to books_path
+    book.destroy
+    redirect_to books_path
   end
 
 private
