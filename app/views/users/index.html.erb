@@ -1,6 +1,6 @@
 <h1>User info</h1>
   <div>
-  <p>image <%= image_tag 'no_image.jpg' %></p>
+  <p><%= image_tag 'no_image.jpg' %></p>
   <p>name <%= current_user.name %></p> 
   <p>introduction <%= current_user.introduction %></p> 
   <%= link_to "edit", edit_user_path(current_user) %>

@@ -18,9 +18,18 @@
 
 <div>
   <h1>Books</h1>
+  <table>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>opinion</th>
+    </tr>
   <% @books.each do |book| %>
-    <p>image</p>
-    <td><%= book.title %></td>
-    <td><%= book.opinion %></td>
+    <tr>
+      <td>image</td>
+      <td><%= book.title %></td>
+      <td><%= book.opinion %></td>
+    </tr>
   <% end %>
+  </table>
 </div>
