@@ -1,34 +1,42 @@
-<div>
-<h1>User info</h1>
-  <p>name <%= current_user.name %></p>
-  <p>introduction <%= current_user.introduction %></p>
-  <%= link_to "edit", edit_user_path(current_user) %>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-11 mx-auto">
 
-<div>
-<h1>New book</h1>
-<%= form_with model: @book do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :opinion %>
-  <%= f.submit 'Create book' %>
-<% end %>
-</div>
+      <div>
+        <h1>User info</h1>
+        <p>name <%= current_user.name %></p>
+        <p>introduction <%= current_user.introduction %></p>
+        <%= link_to "edit", edit_user_path(current_user) %>
+      </div>
 
-<div>
-  <h1>Book detail</h1>
-  <div>
-    <p>image</p>
-    <p><%= @book_show.user.name %></p>
-  </div>
-  <div>
-    <%= @book_show.title %>
-    <%= @book_show.opinion %>
-    <% if @book_show.user == current_user %>
-      <%= link_to "edit", edit_book_path %>
-      <%= link_to "destroy", book_path(@book_show.id), method: :delete %>
-    <% end %>
+      <div>
+        <h1>New book</h1>
+        <%= form_with model: @book do |f| %>
+          <h4>Title</h4>
+          <%= f.text_field :title %>
+          <h4>Opinion</h4>
+          <%= f.text_area :opinion %>
+          <%= f.submit 'Create book' %>
+        <% end %>
+      </div>
+
+      <div>
+        <h1>Book detail</h1>
+        <div>
+          <p>image</p>
+          <p><%= @book_show.user.name %></p>
+        </div>
+
+       <div>
+          <%= @book_show.title %>
+          <%= @book_show.opinion %>
+          <% if @book_show.user == current_user %>
+            <%= link_to "edit", edit_book_path %>
+            <%= link_to "destroy", book_path(@book_show.id), method: :delete %>
+          <% end %>
+       </div>
+     </div>
+    </div>
   </div>
 </div>
 

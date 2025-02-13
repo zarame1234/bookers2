@@ -1,11 +1,17 @@
-<h1>User info</h1>
-<%= form_with model: @user do |f| %>
- <p><label for="inputName">Name</label></P>
- <p><%= f.text_field :name, id:"inputName", placeholder:"name"%></p>
- <p><label for="inputImage">Image</label></p>
- <p><%= f.file_field :profile_image, accept: "image/*" %></p>
- <p><label for="Introduction">Introduction</label></p>
- <p><%= f.text_field :introduction, placeholder:"introduction" %></p>
- <p><%= f.submit "Update User" %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-11 mx-auto">
+      <h1>User info</h1>
+      <%= form_with model: @user do |f| %>
+        <p><label for="inputName">Name</label></P>
+        <p><%= f.text_field :name, id:"inputName", placeholder:"name"%></p>
+        <p><label for="inputImage">Image</label></p>
+        <p><%= f.file_field :profile_image, accept: "image/*" %></p>
+        <p><label for="Introduction">Introduction</label></p>
+        <p><%= f.text_field :introduction, placeholder:"introduction" %></p>
+        <p><%= f.submit "Update User" %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
 

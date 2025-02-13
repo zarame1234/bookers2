@@ -1,12 +1,18 @@
-<h1>Editing Book</h1>
-<%= form_with model: @book do |f| %>
- <p><label for="inputTitle">Title</label></P>
- <p><%= f.text_field :title, placeholder:"title" %></p>
- <p><label for="inputOpinion">Opinion</label></p>
- <p><%= f.text_field :opinion, placeholder:"opinion" %></p>
- <p><%= f.submit "Update User" %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-11 mx-auto">
+      <h1>Editing Book</h1>
+      <%= form_with model: @book do |f| %>
+        <p><label for="inputTitle">Title</label></P>
+        <p><%= f.text_field :title, placeholder:"title" %></p>
+        <p><label for="inputOpinion">Opinion</label></p>
+        <p><%= f.text_field :opinion, placeholder:"opinion" %></p>
+        <p><%= f.submit "Update User" %></p>
+      <% end %>
 
-  <%= link_to "Show", book_path(@book.id) %> 
-  |
-  <%= link_to "Back", books_path %>
+      <%= link_to "Show", book_path(@book.id) %> 
+      |
+      <%= link_to "Back", books_path %>
+    </div>
+  </div>
+</div>
