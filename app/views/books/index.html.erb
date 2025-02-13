@@ -5,9 +5,10 @@
       <div>
         <h1>User info</h1>
         <table class="table">
+          <p><%= image_tag current_user.get_profile_image(100, 100) %></p>
           <p>name <%= current_user.name %></p>
           <p>introduction <%= current_user.introduction %></p>
-          <%= link_to "edit", edit_user_path(current_user), class: "btn btn-outline-secondary btn-block active" %>
+          <%= link_to "edit", edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" %>
         </table>
       </div>
 
@@ -32,7 +33,7 @@
           </tr>
           <% @books.each do |book| %>
             <tr>
-              <td>image</td>
+              <td><%= image_tag book.user.get_profile_image(100, 100) %></td>
               <td><%= book.title %></td>
               <td><%= book.opinion %></td>
             </tr>

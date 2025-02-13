@@ -4,9 +4,18 @@
 
       <div>
         <h1>User info</h1>
-        <p>name <%= current_user.name %></p>
-        <p>introduction <%= current_user.introduction %></p>
-        <%= link_to "edit", edit_user_path(current_user) %>
+        <%= image_tag @user.get_profile_image(100, 100) %>
+        <table class="table table-hover">
+          <tr> 
+            <th>name</th>
+            <th><%= @user.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= @user.introduction %></th>
+          </tr>
+        </table>
+        <%= link_to "edit", edit_user_path(@user), class: "btn btn-outline-secondary btn-block"%>
       </div>
 
       <div>
@@ -16,25 +25,26 @@
           <%= f.text_field :title %>
           <h4>Opinion</h4>
           <%= f.text_area :opinion %>
-          <%= f.submit 'Create book' %>
+          <p><%= f.submit 'Create book' %></p>
         <% end %>
       </div>
 
       <div>
         <h1>Book detail</h1>
-        <div>
-          <p>image</p>
-          <p><%= @book_show.user.name %></p>
-        </div>
-
-       <div>
-          <%= @book_show.title %>
-          <%= @book_show.opinion %>
-          <% if @book_show.user == current_user %>
-            <%= link_to "edit", edit_book_path %>
-            <%= link_to "destroy", book_path(@book_show.id), method: :delete %>
-          <% end %>
-       </div>
+        <table class="table table-hover">
+          <tr>
+            <td>
+              <div><%= image_tag @user.get_profile_image(100, 100) %></div>
+              <div><%= @book_show.user.name %></div>
+            </td>
+            <td><%= @book_show.title %></td>
+            <td><%= @book_show.opinion %></td>
+            <% if @book_show.user == current_user %>
+              <td><%= link_to "edit", edit_book_path %></td>
+              <td><%= link_to "destroy", book_path(@book_show.id), method: :delete %></td>
+            <% end %>
+         </tr>
+        </table>
      </div>
     </div>
   </div>
