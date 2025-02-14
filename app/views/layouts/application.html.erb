@@ -105,13 +105,13 @@
     </header>
    
     <main>
-      <div>
-        <%= flash[:notice] %>
-      </div>
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
 
      <footer>
+  
        <div class="mt-5 text-center">
            <p>CopyRight Infratop.inc</p>
         </div>

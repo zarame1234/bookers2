@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-11 mx-auto">
-
-      <div>
-        <h1>User info</h1>
+    
+    <div class="col-md-3 mb-2">
+      <div  class="mb-2">
+        <h2>User info</h2>
         <% if @book_index.errors.any? %>
           <%= @book_index.errors.count %>errors prohibited this obj from being saved:
            <ul>
@@ -16,25 +16,34 @@
 
         <table class="table">
           <p><%= image_tag current_user.get_profile_image(100, 100) %></p>
-          <p>name <%= current_user.name %></p>
-          <p>introduction <%= current_user.introduction %></p>
-          <%= link_to "edit", edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" %>
+          <tr>
+            <th>name</th>
+            <th><%= current_user.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= current_user.introduction %></th>
+          </tr>
         </table>
+        <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fa-solid fa-user-gear"></i>
+        <% end %>
       </div>
 
       <div>
-        <h1>New book</h1>
+        <h2>New book</h2>
         <%= form_with model: @book_index do |f| %>
           <h4>Title</h4>
           <%= f.text_field :title %>
           <h4>Opinion</h4>
           <%= f.text_area :opinion %>
-          <%= f.submit 'Create book' %>
+          <p><%= f.submit 'Create book' %></p>
         <% end %>
       </div>
+    </div>
 
-      <div>
-        <h1>Books</h1>
+      <div class="col-md-8 offset-md-1">
+        <h2>Books</h2>
         <table class="table table-hover">
           <tr>
             <th></th>
@@ -43,8 +52,11 @@
           </tr>
           <% @books.each do |book| %>
             <tr>
-              <td><%= image_tag book.user.get_profile_image(100, 100) %></td>
-              <td><%= book.title %></td>
+              <td>
+                <%= link_to book_path(book.user) do %>
+                  <%= image_tag book.user.get_profile_image(100, 100) %></td>
+                <% end %>
+              <td><%= link_to book.title, book_path(book.user) %></td>
               <td><%= book.opinion %></td>
             </tr>
           <% end %>
