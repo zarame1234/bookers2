@@ -105,7 +105,10 @@
     </header>
    
     <main>
-    <%= yield %>
+      <div>
+        <%= flash[:notice] %>
+      </div>
+      <%= yield %>
     </main>
 
      <footer>

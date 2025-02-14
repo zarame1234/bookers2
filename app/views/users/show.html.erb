@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container px-5">
   <div class="row">
-    <div class="col-11 mx-auto">
 
+      <div class="col-md-3">
       <div>
         <h1>User info</h1>
         <%= image_tag @user.get_profile_image(100, 100)%>
@@ -28,11 +28,12 @@
           <p><%= f.submit 'Create book' %></p>
         <% end %>
       </div>
+      </div>
 
-      <div>
+      <div class="col-md-8 offset-md-1">
         <h1>Books</h1>
-        <table class="table">
-          <tr>
+        <table class="table table-inverse">
+          <tr class=>
             <th></th>
             <th>Title</th>
             <th>opinion</th>
@@ -46,6 +47,5 @@
            <% end %>
         </table>
       </div>
-    </div>
   </div>
 </div>

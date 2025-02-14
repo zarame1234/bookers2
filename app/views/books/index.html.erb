@@ -4,6 +4,16 @@
 
       <div>
         <h1>User info</h1>
+        <% if @book_index.errors.any? %>
+          <%= @book_index.errors.count %>errors prohibited this obj from being saved:
+           <ul>
+              <% @book_index.errors.full_messages.each do |message| %>
+               <li><%= message %></li>
+               <% end %>
+           </ul>
+          <% end %>
+
+
         <table class="table">
           <p><%= image_tag current_user.get_profile_image(100, 100) %></p>
           <p>name <%= current_user.name %></p>
@@ -14,7 +24,7 @@
 
       <div>
         <h1>New book</h1>
-        <%= form_with model: @book do |f| %>
+        <%= form_with model: @book_index do |f| %>
           <h4>Title</h4>
           <%= f.text_field :title %>
           <h4>Opinion</h4>

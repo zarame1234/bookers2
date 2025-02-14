@@ -1,7 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-11 mx-auto">
+
       <h1>User info</h1>
+      <% if @user.errors.any? %>
+      <%= @user.errors.count %>error prohibited this obj from being saved:
+       <ul>
+          <% @user.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+           <% end %>
+       </ul>
+      <% end %>
+
       <%= form_with model: @user do |f| %>
         <p><label for="inputName">Name</label></P>
         <p><%= f.text_field :name, id:"inputName", placeholder:"name"%></p>
