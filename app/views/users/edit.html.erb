@@ -13,13 +13,22 @@
       <% end %>
 
       <%= form_with model: @user do |f| %>
-        <p><label for="inputName">Name</label></P>
-        <p><%= f.text_field :name, id:"inputName", placeholder:"name"%></p>
-        <p><label for="inputImage">Image</label></p>
-        <p><%= f.file_field :profile_image, accept: "image/*" %></p>
-        <p><label for="Introduction">Introduction</label></p>
-        <p><%= f.text_field :introduction, placeholder:"introduction" %></p>
-        <p><%= f.submit "Update User" %></p>
+        <div class="form-group">
+          <label>Name</label>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label>Image</label>
+          <br>
+          <%= f.file_field :profile_image, accept: "image/*" %>
+        </div>
+        <div class="form-group">
+          <label>Introduction</label>
+          <%= f.text_field :introduction, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <%= f.submit 'Update User', class: "btn btn-secondary" %>
+        </div>
       <% end %>
     </div>
   </div>

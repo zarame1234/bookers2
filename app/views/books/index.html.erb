@@ -1,19 +1,18 @@
 <div class="container">
   <div class="row">
     
-    <div class="col-md-3 mb-2">
-      <div  class="mb-2">
+    <div class="col-md-3 mb-3">
+      <div  class="mb-3">
         <h2>User info</h2>
         <% if @book_index.errors.any? %>
           <%= @book_index.errors.count %>errors prohibited this obj from being saved:
-           <ul>
+            <ul>
               <% @book_index.errors.full_messages.each do |message| %>
                <li><%= message %></li>
-               <% end %>
-           </ul>
+              <% end %>
+            </ul>
           <% end %>
-
-
+      
         <table class="table">
           <p><%= image_tag current_user.get_profile_image(100, 100) %></p>
           <tr>
@@ -33,14 +32,20 @@
       <div>
         <h2>New book</h2>
         <%= form_with model: @book_index do |f| %>
-          <h4>Title</h4>
-          <%= f.text_field :title %>
-          <h4>Opinion</h4>
-          <%= f.text_area :opinion %>
-          <p><%= f.submit 'Create book' %></p>
+          <div class="form-group">
+            <label>Title</label>
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label>Opinion</label>
+            <%= f.text_area :opinion, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit 'Create Book', class: "btn btn-success" %>
+          </div>
         <% end %>
       </div>
-    </div>
+      </div>
 
       <div class="col-md-8 offset-md-1">
         <h2>Books</h2>
