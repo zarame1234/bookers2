@@ -4,10 +4,10 @@
     <div class="col-md-3 mb-3">
       <div  class="mb-3">
         <h2>User info</h2>
-        <% if @book_index.errors.any? %>
-          <%= @book_index.errors.count %>errors prohibited this obj from being saved:
+        <% if @book.errors.any? %>
+          <%= @book.errors.count %>errors prohibited this obj from being saved:
             <ul>
-              <% @book_index.errors.full_messages.each do |message| %>
+              <% @book.errors.full_messages.each do |message| %>
                <li><%= message %></li>
               <% end %>
             </ul>

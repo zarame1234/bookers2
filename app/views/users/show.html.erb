@@ -15,8 +15,14 @@
             <th><%=@user.introduction %></th> 
           </tr>
           </table>
-          <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
-            <i class="fa-solid fa-user-gear"></i>
+          <% if @user == current_user %>
+            <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+              <i class="fa-solid fa-user-gear"></i>
+            <% end %>
+            <% else %>
+             <%= link_to user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+              <i class="fa-solid fa-user-gear"></i>
+            <% end %>
           <% end %>
       </div>
 
@@ -49,10 +55,11 @@
           <% @books.each do |book| %>
             <tr>
               <td>
-                <%= link_to book_path(book.user) do %>
-                <%= image_tag book.user.get_profile_image(100, 100)%>
+                <%= link_to user_path(book.user) do %>
+                  <%= image_tag book.user.get_profile_image(100, 100)%>
+                <% end %>
               </td>
-              <td><%= link_to book.title, user_path(book.user) %></td>
+              <td><%= link_to book.title, book_path(book.user) %></td>
               <td><%= book.opinion %></td>
             </tr>
           <% end %>

@@ -15,8 +15,11 @@ class UsersController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-    @book.save
-    redirect_to book_path(@book)
+    if @book.save
+      redirect_to book_path(@book)
+    else
+      redirect_to books_path
+    end
   end
 
   def edit
@@ -36,19 +39,19 @@ class UsersController < ApplicationController
 
 private
 
-def is_maching_login_user
-  @user= User.find(params[:id])
-  unless @user.id == current_user.id
-    redirect_to user_path(current_user)
+  def is_maching_login_user
+    @user= User.find(params[:id])
+    unless @user.id == current_user.id
+      redirect_to user_path(current_user)
+    end
   end
-end
 
-def user_params
-  params.require(:user).permit(:name, :profile_image, :introduction)
-end
+  def user_params
+    params.require(:user).permit(:name, :profile_image, :introduction)
+  end
 
-def book_params
-  params.require(:book).permit(:title, :opinion)
-end
+  def book_params
+    params.require(:book).permit(:title, :opinion)
+  end
 
 end
