@@ -29,7 +29,7 @@
            </div>
           <div class="form-group">
             <label>Opinion</label>
-            <%= f.text_area :opinion, class: "form-control" %>
+            <%= f.text_area :body, class: "form-control" %>
           </div>
           <div class="form-group">
             <%= f.submit 'Create Book', class: "btn btn-success" %>
@@ -50,12 +50,11 @@
           <tr>
             <td><%= image_tag user.get_profile_image(100, 100) %></td>
             <td><%= user.name %></td> 
-            <td><%= link_to "show", user_path(user.id) %></td>
+            <td><%= link_to "Show", user_path(user.id) %></td>
           </tr>
          <% end %>
        </table>
      </div>
-     
     </div>
   </div>
 </div>

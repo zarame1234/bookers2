@@ -40,7 +40,7 @@
                     Users
                   </div>
                 <% end %>
-               </li>
+              </li>
 
               <li class="navi-item">
                 <%= link_to books_path do %>
@@ -58,7 +58,7 @@
                     Log out
                   </div>
                 <% end %>
-               </li>
+              </li>
 
             <% else %>
               <li class="navi-item">
@@ -70,48 +70,47 @@
                 <% end %>
               </li>
 
-             <li class="navi-item">
-               <%= link_to home_about_path do %>
-                <div class="text-white mr-3 my-1">
-                  <i class="fa-solid fa-link"></i>
-                  About
-                </div>
-               <% end %>
-             </li>
-
-             <li class="navi-item">
-               <%= link_to new_user_registration_path do %>
-                <div class="text-white mr-3 my-1">
-                  <i class="fa-solid fa-user-plus"></i>
-                  Sign up
-                </div>
-               <% end %>
+              <li class="navi-item">
+                <%= link_to home_about_path do %>
+                  <div class="text-white mr-3 my-1">
+                    <i class="fa-solid fa-link"></i>
+                    About
+                  </div>
+                <% end %>
               </li>
 
-             <li class="navi-item">
-               <%= link_to new_user_session_path do %>
-                <div class="text-white mr-3 my-1">
-                 <i class="fa-solid fa-right-to-bracket"></i>
-                  Log in
-                </div>
-               <% end %>
-             </li>
-           <% end %>
-          </ul>
+              <li class="navi-item">
+                <%= link_to new_user_registration_path do %>
+                 <div class="text-white mr-3 my-1">
+                   <i class="fa-solid fa-user-plus"></i>
+                   Sign up
+                 </div>
+                <% end %>
+              </li>
 
+              <li class="navi-item">
+                <%= link_to new_user_session_path do %>
+                 <div class="text-white mr-3 my-1">
+                  <i class="fa-solid fa-right-to-bracket"></i>
+                   Log in
+                 </div>
+                <% end %>
+              </li>
+            <% end %>
+            </ul>
+
+          </div>
         </div>
-       </div>
-       </nav>
+      </nav>
     </header>
    
     <main>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <%= notice %>
+        <%= alert %>
       <%= yield %>
     </main>
 
-     <footer>
-  
+     <footer> 
        <div class="mt-5 text-center">
            <p>CopyRight Infratop.inc</p>
         </div>

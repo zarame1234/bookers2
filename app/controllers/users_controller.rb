@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user= User.find(params[:id])
+    @user = User.find(params[:id])
 
   end
 
@@ -37,12 +37,12 @@ class UsersController < ApplicationController
     end
   end
 
-private
+  private
 
   def is_maching_login_user
-    @user= User.find(params[:id])
-    unless @user.id == current_user.id
-      redirect_to user_path(current_user)
+    user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to user_path(current_user.id)
     end
   end
 
@@ -51,7 +51,7 @@ private
   end
 
   def book_params
-    params.require(:book).permit(:title, :opinion)
+    params.require(:book).permit(:title, :body)
   end
 
 end
